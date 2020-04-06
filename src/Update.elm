@@ -44,7 +44,7 @@ update msg model =
         GraphqlMsg graphqlMsg ->
             let
                 ( newModel, cmd ) =
-                    Api.update graphqlMsg model api
+                    Api.update graphqlMsg model
             in
             ( newModel, Cmd.map GraphqlMsg cmd )
 

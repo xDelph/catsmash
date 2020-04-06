@@ -1,8 +1,8 @@
 module Views.Leaderboard exposing (view)
 
 import Api.Model exposing (Vote)
-import Html exposing (Html, div, img, span, text)
-import Html.Attributes exposing (class, id, src, style)
+import Html exposing (Html, div, text)
+import Html.Attributes exposing (class, id, style)
 import Msg exposing (Msg(..))
 
 

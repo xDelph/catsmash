@@ -1,14 +1,13 @@
 module Api.Update exposing (update)
 
-import Api.GraphqlRequest exposing (queryTotalVotes)
 import Api.Msg exposing (Msg(..))
 import Browser.Navigation as Nav
 import Model exposing (Model, Status(..), ViewModel(..))
 import RemoteData
 
 
-update : Msg -> Model -> String -> ( Model, Cmd Msg )
-update msg model api =
+update : Msg -> Model -> ( Model, Cmd Msg )
+update msg model =
     case msg of
         GotQueryResponseCats response ->
             case response of

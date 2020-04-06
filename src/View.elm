@@ -19,7 +19,7 @@ view model =
         , div [ id "title-right" ] [ text "MASH" ]
         , case model.viewModel of
             Mash cats ->
-                Html.map MashMsg <| MashView.view cats model.totalVotes
+                Html.map MashMsg <| MashView.view cats
 
             Leaderboard votes ->
                 LeaderboardView.view votes
@@ -27,7 +27,7 @@ view model =
             _ ->
                 div [] [ text "Oops" ]
         , case model.viewModel of
-            Mash cats ->
+            Mash _ ->
                 div [ id "totalVotes" ]
                     [ div [ class "title", onClick GoToLeaderboard ] [ text "Voir les plus beaux chats" ]
                     , div [ class "total" ] [ text <| String.fromInt model.totalVotes ++ " votes" ]
