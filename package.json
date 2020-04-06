@@ -6,7 +6,7 @@
   "scripts": {
     "start:dev": "nf start",
     "build": "./node_modules/.bin/elm-app build",
-    "start": "yarn build && node server/app.js",
+    "start": "node server/app.js",
     "generate:elm-graphql": "elm-graphql http://localhost:80/api/graphql --base GeneratedGraphql"
   },
   "standard": {
