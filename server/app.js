@@ -1,4 +1,5 @@
 const express = require('express')
+const sslRedirect = require('heroku-ssl-redirect')
 const graphqlHTTP = require('express-graphql')
 const path = require('path')
 const cors = require('cors')
@@ -13,6 +14,7 @@ const root = {
 }
 
 const app = express()
+app.use(sslRedirect())
 
 // Cors (BAD cors)
 app.use(cors())
@@ -37,6 +39,7 @@ app.get('/*', (req, res) => {
 })
 
 const PORT = process.env.PORT || 8080
-app.listen(PORT)
-console.log(`Running a server at http://::PORT/api`)
-console.log(`Running a GraphQL API server at http://::PORT/api/graphql`)
+app.listen(PORT, () => {
+  console.log(`Running a server at http://::PORT/api`)
+  console.log(`Running a GraphQL API server at http://::PORT/api/graphql`)
+})
