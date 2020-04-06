@@ -1,0 +1,220 @@
+/*
+  elm-hot creates an additional div wrapper around the app to make HMR possible.
+  This could break styling in development mode if you are using Elm UI.
+
+  More context in the issue:
+    https://github.com/halfzebra/create-elm-app/issues/320
+*/
+[data-elm-hot='true'] {
+  height: inherit;
+}
+
+body {
+  font-family: 'Source Sans Pro', 'Trebuchet MS', 'Lucida Grande',
+    'Bitstream Vera Sans', 'Helvetica Neue', sans-serif;
+  margin: 0;
+  text-align: center;
+  color: #293c4b;
+}
+
+/* WEBAPP INFO */
+
+#logo,
+#totalVotes {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#logo {
+  cursor: pointer;
+}
+
+#logo > img {
+  height: 140px;
+}
+
+#title-left,
+#title-right {
+  position: absolute;
+  top: 155px;
+  color: cornflowerblue;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+#title-left {
+  right: 50%;
+  text-align: right;
+  margin-right: 10px;
+}
+#title-right {
+  left: 50%;
+  text-align: left;
+  margin-left: 10px;
+}
+
+/* MASH BLOCK */
+
+#mash {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#mash > div.cat {
+  height: 100vh;
+  align-items: center;
+}
+
+#mash > div:nth-child(1) {
+  background-color: lightblue;
+}
+
+.cat {
+  flex: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cat > div {
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 15px 10px #141414;
+  width: 300px;
+  height: 300px;
+  background-position: center;
+  background-size: contain;
+  margin: auto;
+}
+
+/* TOTAL VOTES BLOCK */
+
+#totalVotes {
+  top: auto;
+  bottom: 0;
+  border: 5px solid lightblue;
+  border-bottom: 0px;
+  border-top-right-radius: 10px;
+  min-width: 300px;
+  text-align: center;
+  background-color: white;
+  padding: 5px;
+}
+
+#totalVotes .title {
+  cursor: pointer;
+}
+
+#totalVotes .total {
+  font-size: 12px;
+}
+
+/* LEADERBOARD */
+
+#leaderboard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+  padding-top: 60px;
+}
+
+#leaderboard .row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100px;
+}
+
+#leaderboard .image {
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 9px 6px #141414;
+  width: 80px;
+  height: 80px;
+  background-position: center;
+  background-size: contain;
+  margin-right: 20px;
+}
+
+/* LOADER */
+
+#loading,
+#loaded {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+#loading {
+  display: flex;
+}
+
+#loaded {
+  display: none;
+}
+
+.lds-ellipsis {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-ellipsis div {
+  position: absolute;
+  top: 33px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: black;
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.lds-ellipsis div:nth-child(1) {
+  left: 8px;
+  animation: lds-ellipsis1 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(2) {
+  left: 8px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(3) {
+  left: 32px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(4) {
+  left: 56px;
+  animation: lds-ellipsis3 0.6s infinite;
+}
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(24px, 0);
+  }
+}

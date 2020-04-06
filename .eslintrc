@@ -1,0 +1,27 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "eslint:recommended",
+    "standard",
+    "plugin:import/errors",
+    "plugin:jest/recommended"
+  ],
+  "plugins": ["jsx-a11y", "import", "jest"],
+  "settings": {
+    "import/resolver": {
+      "babel-module": {}
+    }
+  },
+  "rules": {
+    "no-console": "off",
+    "linebreak-style": "off",
+    "comma-dangle": ["off", "always-multiline"],
+    "no-multi-spaces": "off",
+    "max-len": ["warn", 150],
+    "jest/no-disabled-tests": "warn",
+    "jest/no-focused-tests": "error",
+    "jest/no-identical-title": "error",
+    "jest/prefer-to-have-length": "warn",
+    "jest/valid-expect": "error"
+  }
+}

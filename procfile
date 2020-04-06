@@ -1,0 +1,2 @@
+webapi: nodemon server/app.js
+webapp: ./node_modules/.bin/elm-app start
